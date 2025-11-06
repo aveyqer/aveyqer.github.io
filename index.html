@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Angel Guadalupe Garcia — Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0a0a0a;
+      --card:#1a0f0f;
+      --accent:#b91c1c;
+      --muted:#e5b4b4;
+      --glass: rgba(255,0,0,0.05);
+      --max-w:1100px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:Inter,system-ui,Arial,Helvetica,sans-serif;
+      background:linear-gradient(180deg,#0a0a0a 0%, #120808 60%);
+      color:#f5e6e6;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+      padding:32px 16px;
+      display:flex;
+      justify-content:center;
+    }
+    .wrap{width:100%;max-width:var(--max-w);} 
+    header{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px}
+    .logo{display:flex;gap:12px;align-items:center}
+    .logo img{width:52px;height:52px;border-radius:10px;object-fit:cover;box-shadow:0 6px 18px rgba(0,0,0,0.6)}
+    .logo h1{font-size:18px;margin:0}
+    nav a{color:var(--muted);text-decoration:none;margin-left:18px;font-weight:600}
+    nav a:hover{color:var(--accent)}
+
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center;background:linear-gradient(180deg, rgba(255,0,0,0.02), rgba(255,0,0,0.01));padding:28px;border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,0.6);}
+    .hero-left h2{font-size:28px;margin:0 0 10px}
+    .role{color:var(--muted);font-weight:600;margin-bottom:18px}
+    .cta{display:flex;gap:12px}
+    .btn{padding:10px 16px;border-radius:10px;border:0;cursor:pointer;font-weight:600}
+    .btn-primary{background:linear-gradient(90deg,var(--accent),#7f1d1d);color:white}
+    .btn-ghost{background:transparent;border:1px solid rgba(255,0,0,0.06);color:var(--muted)}
+
+    .card{background:var(--card);padding:18px;border-radius:12px}
+    .profile-card{display:flex;flex-direction:column;gap:12px;align-items:center;text-align:center}
+    .profile-card img{width:260px;height:260px;border-radius:14px;object-fit:cover;border:1px solid rgba(255,0,0,0.03)}
+    .stats{display:flex;gap:12px;margin-top:6px}
+    .stat{background:var(--glass);padding:8px 12px;border-radius:10px;font-weight:600}
+
+    section{margin-top:22px}
+    .about{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .about p{color:var(--muted);margin:0}
+
+    .portfolio-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:12px}
+    .project{padding:12px;border-radius:10px;background:linear-gradient(180deg, rgba(255,0,0,0.01), transparent);}
+    .project img{width:100%;height:120px;object-fit:cover;border-radius:8px}
+    .project h4{margin:10px 0 6px}
+    .project p{margin:0;color:var(--muted);font-size:14px}
+
+    footer{margin-top:30px;color:var(--muted);text-align:center}
+
+    /* Responsive */
+    @media (max-width:980px){
+      .hero{grid-template-columns:1fr;}
+      .hero-left{order:2}
+      .profile-card img{width:220px;height:220px}
+      .portfolio-grid{grid-template-columns:repeat(2,1fr)}
+    }
+    @media (max-width:560px){
+      header{flex-direction:column;align-items:flex-start;gap:12px}
+      .portfolio-grid{grid-template-columns:1fr}
+      .logo h1{font-size:16px}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="logo">
+        <img src="proj2.jpg" alt="my photo">
+        <div>
+          <h1>Angel Guadalupe Garcia</h1>
+          <div style="font-size:12px;color:var(--muted)">BSIT-2 | Major in Web Development and Cloud</div>
+        </div>
+      </div>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero card">
+        <div class="hero-left">
+          <h2>Welcome to My Portfolio - I'm Angel</h2>
+          <div class="role">Student | Aspiring IT Professional | Dancer</div>
+          <p style="color:var(--muted);margin-bottom:18px">
+            I love learning new ideas and sharing what I know. I enjoy exploring new things that spark my curiosity and working on small projects like this, which help me learn and improve my skills.
+          </p>
+          <div class="cta">
+            <button class="btn btn-primary">Dance Photos</button>
+            <button class="btn btn-ghost">See Dance Videos</button>
+          </div>
+        </div>
+
+        <aside class="card profile-card">
+          <img src="proj1.jpg" alt="big pic">
+          <div style="font-weight:700">Angel Guadalupe Garcia</div>
+          <div style="color:var(--muted);font-size:14px">BS Information Technology • Student & Creative Learner</div>
+          <div class="stats">
+            <div class="stat">Web Design · Projects</div>
+            <div class="stat">Dance · Art</div>
+          </div>
+        </aside>
+      </section>
+
+      <section id="about" class="card about">
+        <div>
+          <h3>About me</h3>
+          <p>
+            I am a student currently majoring in Web Development and Cloud. I love learning new ideas and sharing what I know. I enjoy exploring new things that spark my curiosity and working on small projects like this, which help me learn and improve my skills.
+          </p>
+          <p style="margin-top:8px;color:var(--muted)">
+            Skills: HTML, CSS, Python, basic JavaScript, Microsoft Word & PowerPoint (learning).
+          </p>
+        </div>
+        <div>
+          <h3>Education & Activities</h3>
+          <p style="color:var(--muted)">
+            BSIT-2 — currently studying. I enjoy engaging in activities and expressing my creativity through photobooks and presentations.
+          </p>
+          <ul style="color:var(--muted);padding-left:18px;margin-top:8px">
+            <li>Student projects and practice builds</li>
+            <li>Photobooks & personal creative projects</li>
+            <li>Learning new software and technology tools</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="portfolio">
+        <h3 style="margin:10px 0">Portfolio</h3>
+        <div class="portfolio-grid">
+          <div class="project card">
+            <img src="proj4.jpg" alt="book">
+            <h4>Photobook Design</h4>
+            <p>Created a small photobook of moments and memories — layout, margins, and print-ready export.</p>
+          </div>
+          <div class="project card">
+            <img src="proj3.jpg" alt="ppt">
+            <h4>Class Presentation</h4>
+            <p>I make presentations that are fun, clear, and easy to understand — perfect for sharing ideas in school projects!</p>
+          </div>
+          <div class="project card">
+            <img src="proj5.jpg" alt="web">
+            <h4>Simple Web Coding</h4>
+            <p>I enjoy creating simple web projects — coding small websites and experiments is fun, creative, and a great way to learn new skills while seeing my ideas come to life.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="card" style="margin-top:18px">
+        <h3>Contact</h3>
+        <p style="color:var(--muted);margin-bottom:12px">If you’re curious to know more about me, feel free to reach out and contact me.</p>
+        <form onsubmit="event.preventDefault()" style="display:flex;flex-direction:column;gap:8px;max-width:520px">
+          <input placeholder="Your name" style="padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit">
+          <input placeholder="Your email" style="padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit">
+          <textarea placeholder="Message" rows="4" style="padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit"></textarea>
+          <div style="display:flex;gap:8px">
+            <button class="btn btn-primary" type="submit">Send</button>
+            <button class="btn btn-ghost" type="button">Save</button>
+          </div>
+        </form>
+      </section>
+
+      <footer>
+        <div>Built with ♥ — Angel Guadalupe Garcia</div>
+        <small style="display:block;margin-top:6px;color:var(--muted)">To: Mr. Florante III Sugian</small>
+        <small style="display:block;margin-top:6px;color:var(--muted)">Creating this website was challenging, but I had a lot of fun exploring everything. By the way, this is my very first website!</small>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>
