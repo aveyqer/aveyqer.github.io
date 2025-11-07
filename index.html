@@ -27,8 +27,20 @@
       padding:32px 16px;
       display:flex;
       justify-content:center;
+      position:relative;
     }
-    .wrap{width:100%;max-width:var(--max-w);} 
+    /* Canvas for stars */
+    #starCanvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+
+    .wrap{width:100%;max-width:var(--max-w);position:relative;z-index:1;} 
     header{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px}
     .logo{display:flex;gap:12px;align-items:center}
     .logo img{width:52px;height:52px;border-radius:10px;object-fit:cover;box-shadow:0 6px 18px rgba(0,0,0,0.6)}
@@ -77,6 +89,9 @@
   </style>
 </head>
 <body>
+  <!-- Canvas for shining stars -->
+  <canvas id="starCanvas"></canvas>
+
   <div class="wrap">
     <header>
       <div class="logo">
@@ -99,7 +114,7 @@
           <h2>Welcome to My Portfolio - I'm Angel</h2>
           <div class="role">Student | Aspiring IT Professional | Dancer</div>
           <p style="color:var(--muted);margin-bottom:18px">
-            I love learning new ideas and sharing what I know. I enjoy exploring new things that spark my curiosity and working on small projects like this, which help me learn and improve my skills.
+            When I'm not learning to code, you'll find me on stage with my school's <b>Filipiniana dance troupe.</b>I love creating, moving and building things that inspire others.
           </p>
           <div class="cta">
             <button class="btn btn-primary">Dance Photos</button>
@@ -183,5 +198,55 @@
       </footer>
     </main>
   </div>
+
+  <!-- JavaScript for moving shining stars -->
+  <script>
+  const canvas = document.getElementById('starCanvas');
+  const ctx = canvas.getContext('2d');
+
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+
+  window.addEventListener('resize', () => {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  });
+
+  const stars = [];
+  const numStars = 150;
+
+  class Star {
+    constructor() { this.reset(); }
+    reset() {
+      this.x = Math.random() * canvas.width;
+      this.y = Math.random() * canvas.height;
+      this.size = Math.random() * 2 + 0.5;
+      this.speed = Math.random() * 0.5 + 0.1;
+      this.alpha = Math.random();
+      this.alphaChange = Math.random() * 0.02;
+    }
+    update() {
+      this.y -= this.speed;
+      if (this.y < 0) this.y = canvas.height;
+      this.alpha += this.alphaChange;
+      if (this.alpha <= 0 || this.alpha >= 1) this.alphaChange *= -1;
+    }
+    draw() {
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(255,255,255,${this.alpha})`;
+      ctx.fill();
+    }
+  }
+
+  for (let i = 0; i < numStars; i++) stars.push(new Star());
+
+  function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    stars.forEach(star => { star.update(); star.draw(); });
+    requestAnimationFrame(animate);
+  }
+  animate();
+  </script>
 </body>
 </html>
